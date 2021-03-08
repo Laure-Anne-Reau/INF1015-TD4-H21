@@ -51,6 +51,12 @@ string lireString(istream& fichier)
 
 #pragma endregion//}
 
+void lireLivre(istream& fichier, )
+{
+	fichier >> quoted();
+}
+
+
 // Fonctions pour ajouter un Film à une ListeFilms.
 //[
 void ListeFilms::changeDimension(int nouvelleCapacite)
@@ -272,6 +278,15 @@ int main()
 	assert(*listeTextes2[1] == "Allo!");
 	listeTextes = move(listeTextes2);  // Pas demandé, mais comme j'ai fait la méthode on va la tester; noter que la couverture de code dans VisualStudio ne montre pas la couverture des constructeurs/opérateurs= =default.
 	assert(*listeTextes[0] == "Hi" && *listeTextes[1] == "Allo!");
+
+
+	// TODO - 2 : Creation vector
+	vector <Film*> bibliotheque(listeFilms.size());
+
+	for (Film* film : listeFilms.enSpan())
+		bibliotheque.push_back(film);
+
+	
 
 	// Détruit et enlève le premier film de la liste (Alien).
 	delete listeFilms[0];
