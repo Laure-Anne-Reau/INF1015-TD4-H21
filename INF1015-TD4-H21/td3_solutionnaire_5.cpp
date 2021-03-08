@@ -51,9 +51,28 @@ string lireString(istream& fichier)
 
 #pragma endregion//}
 
-void lireLivre(istream& fichier, )
+void lireLivre(string nomFichier, vector<Item*> bibliotheque)
 {
-	fichier >> quoted();
+	ifstream fichier(nomFichier, ios::binary);
+	if (fichier.fail() != 0)
+	{
+		cout << "Il y a eu une erreur dans l'ouverture du fichier " << nomFichier << endl;
+		fichier.exceptions(ios::failbit);
+	}
+
+	Livre livre = {};
+	livre.titre = lireString(fichier);;
+	livre.anneeSortie = lireString(fichier);;
+	livre.auteur = lireString(fichier);;
+	livre.millionCopieVendues = lireString(fichier);;
+
+	for ()
+
+		fichier >> quoted(texte);
+	Livre
+
+		bibliotheque.push_back(livre);
+
 }
 
 
@@ -281,12 +300,12 @@ int main()
 
 
 	// TODO - 2 : Creation vector
-	vector <Film*> bibliotheque(listeFilms.size());
+	vector <Item*> bibliotheque(listeFilms.size());
 
 	for (Film* film : listeFilms.enSpan())
 		bibliotheque.push_back(film);
 
-	
+	lireLivre("livres.txt", bibliotheque);
 
 	// Détruit et enlève le premier film de la liste (Alien).
 	delete listeFilms[0];
