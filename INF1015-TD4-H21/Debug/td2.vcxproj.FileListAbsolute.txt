@@ -6,3 +6,5 @@ C:\Users\laure\Documents\cours\INF1015\INF1015TD\INF1015-TD3-H21\Debug\td3.exe
 C:\Users\laure\Documents\cours\INF1015\INF1015TD\INF1015-TD3-H21\Debug\td3.pdb
 C:\Users\laure\Documents\cours\INF1015\INF1015TD\INF1015-TD4-H21\Debug\td3.exe
 C:\Users\laure\Documents\cours\INF1015\INF1015TD\INF1015-TD4-H21\Debug\td3.pdb
+C:\Users\laure\Documents\GitHub\INF1015-TD4-H21\INF1015-TD4-H21\Debug\td3.exe
+C:\Users\laure\Documents\GitHub\INF1015-TD4-H21\INF1015-TD4-H21\Debug\td3.pdb
