@@ -13,19 +13,29 @@ using namespace std;
 
 struct Film; struct Acteur; // Permet d'utiliser les types alors qu'ils seront défini après.
 
-class Item {
-
+class Affichage : public Item{
 public:
-	string titre;
-	int anneeSortie;
+
+	friend std::ostream& operator<<(std::ostream& out, const Film& film);
+	friend std::ostream& operator<<(std::ostream& out, const Livre& livre);
+
+};
+
+class Item {
+public:
+	Item() = default;
+	string titre = "Sans titre";
+	int anneeSortie = 0;
+
+	// methode afficher
 };
 
 class Livre : public Item {
-
 public:
-	string auteur;
-	int millionCopieVendues;
-	int nPages;
+	Livre() = default;
+	string auteur = "Inconnu.e";
+	int millionCopieVendues = 0;
+	int nPages = 0;
 };
 
 

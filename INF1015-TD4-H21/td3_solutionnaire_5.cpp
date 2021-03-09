@@ -10,6 +10,7 @@
 #include "verification_allocation.hpp" // Nos fonctions pour le rapport de fuites de mémoire.
 
 #include <iostream>
+#include <iomanip> // ajouté
 #include <fstream>
 #include <string>
 #include <limits>
@@ -51,6 +52,33 @@ string lireString(istream& fichier)
 
 #pragma endregion//}
 
+// TODO : 3 - Surchargeur d'operateur afficher Film
+std::ostream& operator<<(std::ostream& out, const Film& film)
+{
+	out << "Titre: " << film.titre << std::endl;
+	out << "  Realisateur: " << film.realisateur << "  Annee :" << film.anneeSortie << std::endl;
+	out << "  Recette: " << film.recette << "M$" << std::endl;
+
+	out << "Acteurs:" << std::endl;
+	for (int i = 0; i < film.acteurs.getNElements(); i++)
+		out << *film.acteurs.spanListe()[i];
+
+	return out;
+}
+
+std::ostream& operator<<(std::ostream& out, const Livre& livre)
+{
+	out << "Titre: " << film.titre << std::endl;
+	out << "  Realisateur: " << film.realisateur << "  Annee :" << film.anneeSortie << std::endl;
+	out << "  Recette: " << film.recette << "M$" << std::endl;
+
+	out << "Acteurs:" << std::endl;
+	for (int i = 0; i < film.acteurs.getNElements(); i++)
+		out << *film.acteurs.spanListe()[i];
+
+	return out;
+}
+
 void lireLivre(string nomFichier, vector<Item*> bibliotheque)
 {
 	ifstream fichier(nomFichier, ios::binary);
@@ -60,19 +88,13 @@ void lireLivre(string nomFichier, vector<Item*> bibliotheque)
 		fichier.exceptions(ios::failbit);
 	}
 
-	Livre livre = {};
-	livre.titre = lireString(fichier);;
-	livre.anneeSortie = lireString(fichier);;
-	livre.auteur = lireString(fichier);;
-	livre.millionCopieVendues = lireString(fichier);;
+	while (!ws(fichier).eof())
+	{
+		Livre livre;
+		fichier >> quoted(livre.titre) >> livre.anneeSortie >> quoted(livre.auteur) >> livre.nPages >> livre.millionCopieVendues;
 
-	for ()
-
-		fichier >> quoted(texte);
-	Livre
-
-		bibliotheque.push_back(livre);
-
+		bibliotheque.push_back(&livre);
+	}
 }
 
 
@@ -306,6 +328,11 @@ int main()
 		bibliotheque.push_back(film);
 
 	lireLivre("livres.txt", bibliotheque);
+
+
+	// TODO - 3 : Affichage de la bibliotheque
+
+	//cout << unItem;
 
 	// Détruit et enlève le premier film de la liste (Alien).
 	delete listeFilms[0];
